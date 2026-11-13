@@ -23,4 +23,13 @@ class TimetableController extends Controller
             'requiredClasses' => $requiredClasses,
         ]);
     }
+    
+    public function edit($id)
+{
+    $entry = TimetableEntry::findOrFail($id);
+
+    return view('entries.edit', [
+        'entry' => $entry,
+    ]);
+}
 }

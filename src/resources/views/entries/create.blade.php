@@ -53,7 +53,7 @@
 
 			<div>
 				<label for="title" class="mb-1 block text-sm font-medium">授業名</label>
-				<input id="title" name="title" type="text" value="{{ old('title') }}" required maxlength="255" class="w-full rounded-md border border-slate-300 px-3 py-2">
+				<input id="title" name="title" type="text" value="{{ old('title') }}" maxlength="255" required class="w-full rounded-md border border-slate-300 px-3 py-2">
 			</div>
 
 			<div>

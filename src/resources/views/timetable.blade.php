@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100 text-slate-800 min-h-screen">
-
     <div class="grid gap-6 md:grid-cols-2">
     <section class="min-w-0 bg-white border border-slate-200 rounded-lg">
         <div class="px-5 pt-4 pb-3 border-b border-slate-200">
