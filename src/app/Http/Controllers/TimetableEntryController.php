@@ -63,8 +63,7 @@ public function index(Request $request)
             ]);
 	}
 
-		$reque
-        st->user()->entries()->create([
+		$request->user()->entries()->create([
         'course_id' => $validated['course_id'],
     ]);
 
