@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class TimetableEntryController extends Controller
 {
-public function index()
+public function index(Request $request)
     {
-        $entries = TimetableEntry::with('course')
+        $entries = $request->user()->entries()
+            ->with('course')
             ->get()
             ->sortBy(function (TimetableEntry $entry) {
                 return [
@@ -48,7 +49,8 @@ public function index()
 
 		$course = Course::findOrFail($validated['course_id']);
 
-    $hasConflict = TimetableEntry::whereHas('course', function ($query) use ($course) {
+    $hasConflict = $request->user()->entries()
+        ->whereHas('course', function ($query) use ($course) {
         $query->where('day', $course->day)
             ->where('period', $course->period);
     })->exists();
@@ -61,7 +63,7 @@ public function index()
             ]);
 	}
 
-		TimetableEntry::create([
+		$request->user()->entries()->create([
         'course_id' => $validated['course_id'],
     ]);
 
